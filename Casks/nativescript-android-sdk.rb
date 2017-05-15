@@ -12,10 +12,6 @@ cask 'nativescript-android-sdk' do
 
   binary "#{path}/tools/android"
 
-  preflight do
-    system_command "#{staged_path}/tools/android", args: ['update sdk -s']
-  end
-
   postflight do
     FileUtils.ln_sf(path.to_s, "#{HOMEBREW_PREFIX}/share/android-sdk")
   end
