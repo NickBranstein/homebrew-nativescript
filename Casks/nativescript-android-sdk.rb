@@ -13,18 +13,17 @@ cask 'nativescript-android-sdk' do
   binary "tools/android"
 
   postflight do
-    FileUtils.ln_sf(path.to_s, "#{HOMEBREW_PREFIX}/share/android-sdk")
+    FileUtils.ln_sf(path.to_s, "#{HOMEBREW_PREFIX}/Caskroom/android-sdk")
   end
 
   uninstall_postflight do
-    FileUtils.rm("#{HOMEBREW_PREFIX}/share/android-sdk")
+    FileUtils.rm("#{HOMEBREW_PREFIX}/Caskroom/android-sdk")
   end
 
   caveats <<-EOS.undent
-    We will install android-sdk-tools, platform-tools, and build-tools for you.
-    You can control android sdk packages via the sdkmanager command.
-    You may want to add to your profile:
-      'export ANDROID_SDK_ROOT=#{HOMEBREW_PREFIX}/share/android-sdk'
+    Now run android update sdk to get the old GUI and update the android SDKs.
+    You may need to fix your profile with the following update:
+      'export ANDROID_SDK_ROOT=#{HOMEBREW_PREFIX}/Caskroom/android-sdk'
     This operation may take up to 10 minutes depending on your internet connection.
     Please, be patient.
   EOS
