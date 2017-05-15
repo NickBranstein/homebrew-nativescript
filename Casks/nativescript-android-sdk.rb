@@ -1,10 +1,10 @@
-cask 'nativescript-android-sdk' do
+cask 'android-sdk' do
   version '22.0.1'
   sha256 '0a3fcda0eb90195f1d9926ea756307d38f6801e10289afe14bd15d0c155cd1ee'
 
   # google.com/android/repository/tools_r was verified as official when first introduced to the cask
   url "https://dl.google.com/android/repository/tools_r#{version}-macosx.zip"
-  name 'android-sdk'
+  name 'NativeScript - Android SDK'
   homepage 'https://developer.android.com/index.html'
 
   build_tools_version = '22.0.1'
