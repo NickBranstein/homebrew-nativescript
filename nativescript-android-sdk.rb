@@ -7,8 +7,6 @@ cask 'nativescript-android-sdk' do
   name 'nativescript-android-sdk'
   homepage 'https://developer.android.com/index.html'
 
-  conflicts_with cask: 'android-platform-tools'
-
   binary "#{staged_path}/build-tools/#{build_tools_version}/aapt"
   binary "#{staged_path}/build-tools/#{build_tools_version}/aapt2"
   binary "#{staged_path}/build-tools/#{build_tools_version}/aidl"
