@@ -1,4 +1,4 @@
-cask 'android-sdk' do
+cask 'nativescript-android-sdk' do
   version '22.0.1'
   sha256 '0a3fcda0eb90195f1d9926ea756307d38f6801e10289afe14bd15d0c155cd1ee'
 
@@ -8,39 +8,40 @@ cask 'android-sdk' do
   homepage 'https://developer.android.com/index.html'
 
   build_tools_version = '22.0.1'
+  path = 'android-sdk'
 
-  binary "#{staged_path}/build-tools/#{build_tools_version}/aapt"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/aapt2"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/aidl"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/apksigner"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/dexdump"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/dx"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/llvm-rs-cc"
-  binary "#{staged_path}/build-tools/#{build_tools_version}/zipalign"
-  binary "#{staged_path}/emulator/emulator"
-  binary "#{staged_path}/emulator/emulator-check"
-  binary "#{staged_path}/emulator/emulator64-arm"
-  binary "#{staged_path}/emulator/emulator64-mips"
-  binary "#{staged_path}/emulator/emulator64-x86"
-  binary "#{staged_path}/platform-tools/adb"
-  binary "#{staged_path}/platform-tools/dmtracedump"
-  binary "#{staged_path}/platform-tools/etc1tool"
-  binary "#{staged_path}/platform-tools/fastboot"
-  binary "#{staged_path}/platform-tools/hprof-conv"
-  binary "#{staged_path}/tools/android"
-  binary "#{staged_path}/tools/bin/avdmanager"
-  binary "#{staged_path}/tools/bin/lint"
-  binary "#{staged_path}/tools/bin/monkeyrunner"
-  binary "#{staged_path}/tools/bin/sdkmanager"
-  binary "#{staged_path}/tools/mksdcard"
-  binary "#{staged_path}/tools/monitor"
+  binary "#{path}/build-tools/#{build_tools_version}/aapt"
+  binary "#{path}/build-tools/#{build_tools_version}/aapt2"
+  binary "#{path}/build-tools/#{build_tools_version}/aidl"
+  binary "#{path}/build-tools/#{build_tools_version}/apksigner"
+  binary "#{path}/build-tools/#{build_tools_version}/dexdump"
+  binary "#{path}/build-tools/#{build_tools_version}/dx"
+  binary "#{path}/build-tools/#{build_tools_version}/llvm-rs-cc"
+  binary "#{path}/build-tools/#{build_tools_version}/zipalign"
+  binary "#{path}/emulator/emulator"
+  binary "#{path}/emulator/emulator-check"
+  binary "#{path}/emulator/emulator64-arm"
+  binary "#{path}/emulator/emulator64-mips"
+  binary "#{path}/emulator/emulator64-x86"
+  binary "#{path}/platform-tools/adb"
+  binary "#{path}/platform-tools/dmtracedump"
+  binary "#{path}/platform-tools/etc1tool"
+  binary "#{path}/platform-tools/fastboot"
+  binary "#{path}/platform-tools/hprof-conv"
+  binary "#{path}/tools/android"
+  binary "#{path}/tools/bin/avdmanager"
+  binary "#{path}/tools/bin/lint"
+  binary "#{path}/tools/bin/monkeyrunner"
+  binary "#{path}/tools/bin/sdkmanager"
+  binary "#{path}/tools/mksdcard"
+  binary "#{path}/tools/monitor"
 
   preflight do
-    system_command "#{staged_path}/tools/bin/sdkmanager", args: ['tools', 'platform-tools', "build-tools;#{build_tools_version}"], input: 'y'
+    system_command "#{path}/tools/bin/sdkmanager", args: ['tools', 'platform-tools', "build-tools;#{build_tools_version}"], input: 'y'
   end
 
   postflight do
-    FileUtils.ln_sf(staged_path.to_s, "#{HOMEBREW_PREFIX}/share/android-sdk")
+    FileUtils.ln_sf(path.to_s, "#{HOMEBREW_PREFIX}/share/android-sdk")
   end
 
   uninstall_postflight do
