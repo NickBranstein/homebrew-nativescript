@@ -13,7 +13,7 @@ cask 'nativescript-android-sdk' do
   binary "#{path}/tools/android"
 
   preflight do
-    system_command "#{staging_path}/tools/android", args: ['update sdk --filter tools,platform-tools,android-25,build-tools-25.0.2,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui'], input: 'y'
+    system_command "#{staged_path}/tools/android", args: ['update sdk --filter tools,platform-tools,android-25,build-tools-25.0.2,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui'], input: 'y'
   end
 
   postflight do
