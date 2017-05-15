@@ -1,12 +1,13 @@
-class NativeScriptAndroidSdk < Formula
+cask 'nativescript-android-sdk' do
   version '22.0.1'
-  sha256 "0a3fcda0eb90195f1d9926ea756307d38f6801e10289afe14bd15d0c155cd1ee"
-  
+  sha256 '0a3fcda0eb90195f1d9926ea756307d38f6801e10289afe14bd15d0c155cd1ee'
+
+  # google.com/android/repository/tools_r was verified as official when first introduced to the cask
   url "https://dl.google.com/android/repository/tools_r#{version}-macosx.zip"
   name 'nativescript-android-sdk'
   homepage 'https://developer.android.com/index.html'
 
-  build_tools_version = '22.0.1'
+  conflicts_with cask: 'android-platform-tools'
 
   binary "#{staged_path}/build-tools/#{build_tools_version}/aapt"
   binary "#{staged_path}/build-tools/#{build_tools_version}/aapt2"
