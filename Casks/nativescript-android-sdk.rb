@@ -10,7 +10,7 @@ cask 'nativescript-android-sdk' do
   build_tools_version = '22.0.1'
   path = 'android-sdk'
 
-  binary "#{path}/tools/android"
+  binary "tools/android"
 
   postflight do
     FileUtils.ln_sf(path.to_s, "#{HOMEBREW_PREFIX}/share/android-sdk")
