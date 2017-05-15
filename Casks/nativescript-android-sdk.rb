@@ -37,7 +37,7 @@ cask 'nativescript-android-sdk' do
   binary "#{path}/tools/monitor"
 
   preflight do
-    system_command "#{path}/tools/android", args: ['tools', 'platform-tools', "build-tools;#{build_tools_version}"], input: 'y'
+    system_command "#{staged_path}/tools/android", args: ['tools', 'platform-tools', "build-tools;#{build_tools_version}"], input: 'y'
   end
 
   postflight do
