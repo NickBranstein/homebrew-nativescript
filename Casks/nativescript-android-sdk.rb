@@ -32,12 +32,12 @@ cask 'nativescript-android-sdk' do
   binary "#{path}/tools/bin/avdmanager"
   binary "#{path}/tools/bin/lint"
   binary "#{path}/tools/bin/monkeyrunner"
-  binary "#{path}/tools/bin/android"
+  binary "#{path}/tools/android"
   binary "#{path}/tools/mksdcard"
   binary "#{path}/tools/monitor"
 
   preflight do
-    system_command "#{path}/tools/bin/android", args: ['tools', 'platform-tools', "build-tools;#{build_tools_version}"], input: 'y'
+    system_command "#{path}/tools/android", args: ['tools', 'platform-tools', "build-tools;#{build_tools_version}"], input: 'y'
   end
 
   postflight do
