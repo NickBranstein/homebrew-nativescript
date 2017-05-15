@@ -1,4 +1,4 @@
-class nativescript-android-sdk < Formula
+class NativeScriptAndroidSdk < Formula
   version '22.0.1'
   sha256 "0a3fcda0eb90195f1d9926ea756307d38f6801e10289afe14bd15d0c155cd1ee"
   
